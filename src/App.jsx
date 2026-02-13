@@ -340,10 +340,8 @@ export default function App() {
 
       {currentScreen === 'intro' && <IntroScreen onStart={handleStart} />}
       {currentScreen === 'tutorial' && <TutorialScreen userName={userName} onComplete={handleTutorialComplete} />}
-      {currentScreen === 'game' && <GameScreen userName={userName} warningCount={warningCount} onGameOver={() => {
-        if (document.exitFullscreen && document.fullscreenElement) {
-          document.exitFullscreen().catch(() => { });
-        }
+      {currentScreen === 'game' && <GameScreen userName={userName} warningCount={warningCount} enterFullscreen={enterFullscreen} onGameOver={() => {
+        // Stay in fullscreen — do NOT exit
       }} />}
     </>
   );

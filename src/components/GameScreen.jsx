@@ -50,7 +50,7 @@ const generateQuestions = () => {
     return gameQuestions;
 };
 
-export default function GameScreen({ userName, warningCount, onGameOver }) {
+export default function GameScreen({ userName, warningCount, onGameOver, enterFullscreen }) {
     // Core game state
     const [currentLevel, setCurrentLevel] = useState(1);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -256,7 +256,7 @@ export default function GameScreen({ userName, warningCount, onGameOver }) {
             setBattleState('warriorDefend');
             setTimeout(() => {
                 setBattleState('warriorAttack');
-                setTimeout(() => setBattleState('idle'), 600);
+                setTimeout(() => setBattleState('idle'), 900);
             }, 400);
 
             // Critical hit check
@@ -689,7 +689,12 @@ export default function GameScreen({ userName, warningCount, onGameOver }) {
 
         stopMusic();
 
-    }, [stopMusic]);
+        // Re-enter fullscreen on restart
+        if (enterFullscreen) {
+            setTimeout(() => enterFullscreen(), 100);
+        }
+
+    }, [stopMusic, enterFullscreen]);
 
     const progress = (currentQuestionIndex / 35) * 100;
 
@@ -763,6 +768,9 @@ export default function GameScreen({ userName, warningCount, onGameOver }) {
                     <div className="fighter-label">Nagshakthi</div>
                 </div>
 
+                {battleState === 'warriorAttack' && <div className="effect sword-projectile">⚔️</div>}
+                {battleState === 'warriorAttack' && <div className="effect slash-trail"></div>}
+                {battleState === 'warriorAttack' && <div className="effect impact-sparks">💥</div>}
                 {battleState === 'warriorDefend' && <div className="effect shield-effect">🛡️</div>}
                 {battleState === 'dragonAttack' && <div className="effect fire-breath">🔥🔥🔥</div>}
                 {battleState === 'dragonSpecial' && (
@@ -899,7 +907,7 @@ export default function GameScreen({ userName, warningCount, onGameOver }) {
                 <VictoryOverlay
                     score={score}
                     onRestart={handleRestart}
-                    collectedGifts={collectedGifts}
+                    gifts={collectedGifts}
                 />
             )}
         </div>
