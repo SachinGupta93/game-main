@@ -1,0 +1,22 @@
+export const getMotivationalQuotes = (name) => [
+    `Believe you can, ${name}, and you're halfway there.`,
+    `Success is not final, failure is not fatal: it is the courage to continue that counts, ${name}.`,
+    `The only way to do great work is to love what you do, ${name}.`,
+    `Don't watch the clock, ${name}; do what it does. Keep going.`,
+    `It always seems impossible until it's done. You've got this, ${name}!`,
+    `Quality is not an act, it is a habit, ${name}.`,
+    `Your limitation—it's only your imagination, ${name}.`,
+    `Push yourself, ${name}, because no one else is going to do it for you.`,
+    `Great things never came from comfort zones. Rise up, ${name}!`,
+    `Dream it. Wish it. Do it, ${name}.`,
+    `Success doesn’t just find you, ${name}. You have to go out and get it.`,
+    `The harder you work for something, the greater you’ll feel when you achieve it, ${name}.`,
+    `Dream bigger. Do bigger, ${name}.`,
+    `Don’t stop when you’re tired, ${name}. Stop when you’re done.`,
+    `Wake up with determination, ${name}. Go to bed with satisfaction.`,
+    `Do something today that your future self will thank you for, ${name}.`,
+    `Little things make big days. Keep pushing, ${name}!`,
+    `It’s going to be hard, but hard does not mean impossible, ${name}.`,
+    `Don’t wait for opportunity, ${name}. Create it.`,
+    `Sometimes we’re tested not to show our weaknesses, but to discover our strengths, ${name}.`
+];

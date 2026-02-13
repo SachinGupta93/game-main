@@ -1,0 +1,259 @@
+/* HUD Power-up Buttons */
+.hud-powerups {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.powerup-btn {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.powerup-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.powerup-btn:active {
+    transform: translateY(0);
+}
+
+.powerup-time {
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+}
+
+.powerup-hint {
+    background: linear-gradient(135deg, #FFC107, #FFA000);
+    box-shadow: 0 4px 10px rgba(255, 193, 7, 0.3);
+    color: #3e2723;
+}
+
+.powerup-skip {
+    background: linear-gradient(135deg, #2196F3, #1565C0);
+    box-shadow: 0 4px 10px rgba(33, 150, 243, 0.3);
+}
+
+.powerup-count {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+}
+
+/* Gift Box Modal */
+.gift-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1200;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.gift-modal-content {
+    background: linear-gradient(135deg, #2c3e50, #000000);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 300px;
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gift-modal-content h2 {
+    font-family: 'Cinzel', serif;
+    color: #ffd700;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.gift-box-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gift-box {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s;
+}
+
+.gift-box:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+.gift-box.open {
+    transform: scale(0.8) translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.gift-body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80%;
+    background: #e74c3c;
+    border-radius: 0 0 8px 8px;
+    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.gift-body::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 100%;
+    background: #ffd700;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.gift-lid {
+    position: absolute;
+    top: 0;
+    left: -5%;
+    width: 110%;
+    height: 25%;
+    background: #c0392b;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.gift-lid::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 100%;
+    background: #ffd700;
+}
+
+.gift-reveal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: giftPopUp 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.gift-emoji {
+    font-size: 5rem;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+}
+
+.gift-name {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    color: white;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+}
+
+.gift-sparkles {
+    position: absolute;
+    font-size: 2rem;
+    animation: sparkle 1s infinite alternate;
+    top: -20px;
+    right: -20px;
+}
+
+.gift-instruction {
+    font-family: 'Inter', sans-serif;
+    color: #bdc3c7;
+    font-size: 0.9rem;
+    margin: 0;
+    animation: pulse 1.5s infinite;
+}
+
+.collect-btn {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffd700, #f1c40f);
+    border: none;
+    padding: 10px 24px;
+    border-radius: 30px;
+    color: #2c3e50;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4);
+    animation: fadeIn 0.5s ease 0.5s forwards;
+    opacity: 0;
+}
+
+.collect-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(241, 196, 15, 0.6);
+}
+
+@keyframes giftPopUp {
+    from {
+        transform: translate(-50%, 50%) scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes sparkle {
+    from {
+        opacity: 0.5;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}

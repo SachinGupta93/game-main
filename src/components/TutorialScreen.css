@@ -1,0 +1,257 @@
+.tutorial-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(ellipse at center, #1a1a3e 0%, #0a0a1a 70%);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Background Particles */
+.tutorial-bg-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.tutorial-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, #ffd700, transparent);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+.tutorial-overlay {
+    background: linear-gradient(145deg, rgba(30, 30, 60, 0.95), rgba(15, 15, 35, 0.98));
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    border-radius: 24px;
+    padding: 35px;
+    max-width: 620px;
+    width: 90%;
+    position: relative;
+    box-shadow:
+        0 0 60px rgba(255, 215, 0, 0.08),
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    z-index: 1;
+}
+
+/* Glowing border effect */
+.tutorial-overlay::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), transparent, rgba(255, 215, 0, 0.15));
+    z-index: -1;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    padding: 1px;
+}
+
+.tutorial-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.tutorial-jiraiya-container {
+    margin-bottom: -5px;
+}
+
+.tutorial-jiraiya {
+    font-size: 6rem;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4));
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tutorial-jiraiya .sage-icon {
+    font-size: 6rem;
+    z-index: 2;
+}
+
+.tutorial-jiraiya .toad-icon {
+    font-size: 4rem;
+    position: absolute;
+    bottom: -10px;
+    left: -20px;
+    z-index: 1;
+    transform: scaleX(-1);
+}
+
+/* Dialogue Box */
+.tutorial-dialogue-box {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 25px 20px 20px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dialogue-name {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: linear-gradient(135deg, #ffd700, #ffaa00);
+    color: #000;
+    font-weight: 700;
+    padding: 3px 14px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    box-shadow: 0 3px 10px rgba(255, 170, 0, 0.3);
+    letter-spacing: 0.5px;
+}
+
+/* Dialogue Content with slide animations */
+.dialogue-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.dialogue-step-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.3));
+}
+
+.dialogue-step-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #ffd700;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 8px rgba(255, 215, 0, 0.2);
+}
+
+.dialogue-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    white-space: pre-line;
+    max-width: 480px;
+}
+
+/* Step Indicator Dots */
+.tutorial-step-indicator {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.step-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.step-dot.active {
+    background: #ffd700;
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.6), 0 0 4px rgba(255, 215, 0, 0.8);
+    border-color: #ffd700;
+}
+
+.step-dot.completed {
+    background: rgba(255, 215, 0, 0.45);
+    border-color: rgba(255, 215, 0, 0.5);
+}
+
+/* Button Group */
+.tutorial-btn-group {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+
+/* Next Button */
+.tutorial-next-btn {
+    background: linear-gradient(135deg, #ffd700, #ffaa00);
+    border: none;
+    padding: 12px 28px;
+    border-radius: 12px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #1a1a2e;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(255, 170, 0, 0.3);
+    transition: box-shadow 0.2s;
+}
+
+.tutorial-next-btn:hover {
+    box-shadow: 0 6px 25px rgba(255, 170, 0, 0.5);
+}
+
+/* Previous Button */
+.tutorial-prev-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #ffd700;
+    transition: all 0.2s;
+}
+
+.tutorial-prev-btn:hover {
+    background: rgba(255, 215, 0, 0.1);
+    border-color: rgba(255, 215, 0, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .tutorial-overlay {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .tutorial-jiraiya .sage-icon {
+        font-size: 4rem;
+    }
+
+    .tutorial-jiraiya .toad-icon {
+        font-size: 2.5rem;
+    }
+
+    .dialogue-step-title {
+        font-size: 1.2rem;
+    }
+
+    .dialogue-text {
+        font-size: 0.95rem;
+    }
+}
